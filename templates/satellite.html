@@ -1,0 +1,14 @@
+{%include 'header.html' %}
+    <img src="../images/moon.png" class="moon_img">
+    <h1>Траектория спутника {{sat_name}}</h1>
+    <div class="sat_info">
+        <img src={{image}} class="sat_image">
+
+        <a class="refresh" href="#" onClick="document.location.reload(true)">Обновить местоположение</a>
+    </div>
+    <div class="switch">
+        <a class="switch_id" href={{id_prev}}>Предыдущий</a>
+        <a class="switch_id" href={{id_next}}>Следующий</a>
+    </div>
+</body>
+</html>

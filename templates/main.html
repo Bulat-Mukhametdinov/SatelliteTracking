@@ -1,0 +1,12 @@
+{%include 'header.html' %}
+    <img src="images/moon.png" class="moon_img">
+    <h1>Трекинг спутников на базе TLE данных</h1>
+    <form action="/" method="post" class = "id_form">
+        <p><label>Введите ID спутника: </label><input type = "text" class = "txt_field" name = "sat_id" value="" required />
+        <p><input type="submit" class = "main_btn" value="Смотреть траекторию" />
+    </form>
+    {%for msg in get_flashed_messages()%}
+    <div class="flash">{{msg}}</div>
+    {% endfor %}
+</body>
+</html>

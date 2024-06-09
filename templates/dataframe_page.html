@@ -1,0 +1,6 @@
+{%include 'header.html' %}
+    <img src="../images/moon.png" class="moon_img">
+    <h1>{{title}}</h1>
+    <div class="df"> {{ df.to_html(classes='dataframe') | safe}} </div>
+</body>
+</html>

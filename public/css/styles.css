@@ -1,0 +1,145 @@
+:root{
+    --text_color: #000;
+    --background: #fff;
+    --shadow_color: #00000080;
+    --btn_cover: #000;
+    --blue_before: #77baeb;
+    --df_bg1: #E0E0E0;
+    --df_bg2: rgb(214, 214, 214);
+    --df_bg_hover: silver;
+    --image_color: invert(0);
+}
+
+body:has(.darkmode:checked){
+    --text_color: #fff;
+    --background: #1c2023;
+    --shadow_color: #ffffff9f;
+    --btn_cover: #fff;
+    --blue_before: #14588a;
+    --df_bg1: #1f1f1f;
+    --df_bg2: rgb(96, 96, 99);
+    --df_bg_hover: rgb(72, 72, 75);
+    --image_color: invert(1);
+}
+
+body{
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background);
+    color: var(--text_color);
+}
+
+.darkmode{
+    position: absolute;
+    right: 4px;
+    top: 12px;
+}
+
+.moon_img{
+    position: absolute;
+    top: 13px;
+    right: 22px;
+    width: 16px;
+    filter: var(--image_color);
+}
+
+.header_menu{
+    height: 87px;
+    top: 0;
+    width: 1440px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 10px -5px var(--shadow_color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--text_color);
+}
+
+a::after{
+    color: var(--text_color);
+}
+
+.header_link{
+    display: block;
+    border-bottom: 2px solid var(--blue_before);
+    padding: 34px;
+    
+}
+
+.header_link:hover{
+    border-bottom: 4px solid #32a1ce;
+}
+
+.flash{
+    color: red;
+}
+
+.main_btn{
+    background: var(--blue_before);
+    color: white;
+    padding: 10px;
+    border: 2px solid #32a1ce;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main_btn:hover, .refresh:hover, .switch_id:hover{
+    background: #32a1ce;
+}
+
+.txt_field{
+    border-radius: 5px;
+}
+
+.sat_info{
+    top: 0;
+}
+
+.sat_image{
+    width: 85%;
+    
+}
+
+.refresh{
+    position: absolute;
+    top: 120;
+}
+
+.switch_id, .refresh{
+    background: var(--blue_before);
+    color: white;
+    padding: 5px;
+    border: 2px solid #32a1ce;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+
+.dataframe {
+    font-size: 11pt; 
+    border-collapse: collapse;
+    border: 1px solid var(--df_bg2);
+
+}
+
+.dataframe td, th {
+    padding: 5px;
+}
+
+.dataframe tr:nth-child(even) {
+    background: var(--df_bg2);
+}
+
+.dataframe tr:hover {
+    background: var(--df_bg_hover);
+    cursor: pointer;
+}

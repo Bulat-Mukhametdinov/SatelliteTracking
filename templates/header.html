@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header_menu">
+            <a href="/" class="header_link">Главная</a>
+            <a href="/df" class="header_link">База данных</a>
+            <a href="/plots" class="header_link">Графики</a>
+        </div>
+        <input type="checkbox" class="darkmode">
+    </header>
