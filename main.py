@@ -39,7 +39,7 @@ def plots():
 @app.route('/satellite/<int:id>', methods=["GET", "POST"])
 def satellite(id):
     try:
-        cv2.imwrite("public/satellite/img.png", get_satellite_orb_img(satellites[id]))
+        cv2.imwrite("public/satellite/img.png", get_satellite_orb_img([satellites[id], satellites[0]]))
         return render_template('satellite.html', image = 'img.png', sat_name = satellites[id].satellite_name, id_next = "/satellite/"+str(min(id+1, 21986)), id_prev = "/satellite/"+str(max(id-1, 0)))
     except:
         return render_template_string(f"{satellites[id].satellite_name} was died")

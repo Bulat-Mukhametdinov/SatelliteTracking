@@ -1,12 +1,29 @@
 import math
 import numpy as np
+from random import randint
 from pyorbital.orbital import Orbital
 from datetime import datetime
+
 
 pi = math.pi
 
 
-def spherical2mercator(latitude:float, longitude:float, img_size:tuple[int, int]):
+def getRandomColorPair():
+    """
+    Creates random pair of color
+    """
+    r = randint(0, 255)
+    g = randint(0, 255)
+    b = randint(0, 255)
+
+    r1 = (r + randint(-10, 10)) % 255
+    g1 = (g + randint(-10, 10)) % 255
+    b1 = (b + randint(-10, 10)) % 255
+
+    return (r, g, b), (r1, g1, b1)
+
+
+def spherical2mercator(latitude:float, longitude:float, img_size:tuple[int, int]) -> tuple[int, int]:
     """
     Translates latitude and longitude to mercator projection coordinates on image\n
     img_size = (img_height, img_width)
