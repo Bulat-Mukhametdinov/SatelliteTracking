@@ -1,5 +1,7 @@
 import pandas as pd
 from Test_api import get_tle_data
+from matplotlib import pyplot as plt
+
 
 def get_dataframe():
     get_tle_data()
@@ -77,3 +79,49 @@ def get_dataframe():
     sortDf_meanMotion = df.sort_values("Средняя частота обращений")
 
     return df
+df = get_dataframe()
+
+
+def get_year(x):
+    new_list = []
+    for i in x:
+        if i == None:
+            new_list.append(None)
+            continue
+        year = int(i[:2])
+
+        if year < 50:
+            year += 2000
+            new_list.append(year)
+        else:
+            year += 1900
+            new_list.append(year)
+    return new_list
+
+histogram_1 = plt.figure(figsize = (9,5))
+plt.hist(df["Номер витка"], color = "black", bins = 30)
+plt.xlabel('Количество витков, с момента старта')
+plt.ylabel("Количество спутников")
+plt.title("Распределение количества витков")
+plt.savefig('public/images/plot1.png')
+
+
+
+df_epoch = df[["Международное обозначение", 'Номер витка']]
+new_list = get_year(df_epoch["Международное обозначение"])
+df_epoch.insert(2, "Год запуска", new_list)
+
+histogram_2 = plt.figure(figsize=(9, 5))
+plt.hist(df_epoch["Год запуска"], orientation='horizontal', bins=60, color="black")
+plt.xlabel('Количество спутников')
+plt.ylabel("Год запуска")
+plt.title("Распределение количества запущеных спутников по годам")
+plt.savefig('public/images/plot2.png')
+
+df_speed = df["Средняя частота обращений"]
+histogram_3 = plt.figure(figsize=(9, 5))
+plt.hist(df_speed, bins=20, color="black")
+plt.xlabel('Среднее количество витков')
+plt.ylabel("Количество спутников")
+plt.title("Распределение количества витков")
+plt.savefig('public/images/plot3.png')
