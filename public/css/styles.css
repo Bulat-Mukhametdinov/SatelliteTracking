@@ -94,6 +94,11 @@ a::after{
     background: #32a1ce;
 }
 
+.num_field{
+    border-radius: 5px;
+    width: 20px;
+}
+
 .txt_field{
     border-radius: 5px;
 }
@@ -142,4 +147,16 @@ a::after{
 .dataframe tr:hover {
     background: var(--df_bg_hover);
     cursor: pointer;
+}
+
+.plots{
+    margin-top: 30px;
+    width: 1440px;
+    height: 1300px;
+    
+}
+
+.plot_img{
+    width: 700px;
+    filter: var(--image_color);
 }
